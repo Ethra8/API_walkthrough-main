@@ -6,17 +6,22 @@ document.getElementById("status").addEventListener("click", e => getStatus(e));
 document.getElementById("submit").addEventListener("click", e => postForm(e));
 
 function processOptions(form) {
+    /** Needs to:
+     * 1. Iterate through the options
+     * 2. Push each value into a temporary array
+     * 3. Convert array back to a string
+     */
     let optArray = [];
 
-    for (let e of form.entries()) {
-        if (e[0] === "options") {
-            optArray.push(e[1]);
+    for (let entry of form.entries()) {
+        if (entry[0] === "options") {
+            optArray.push(entry[1]);
         }
     }
 
     form.delete("options");
 
-    form.append("options", optArray.join());
+    form.append("options", optArray.join()); // .join() transforms array to string separated by commas by default 
 
     return form;
 }

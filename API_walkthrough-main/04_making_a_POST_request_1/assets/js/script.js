@@ -7,7 +7,7 @@ document.getElementById("submit").addEventListener("click", e => postForm(e));
 
 async function postForm(e) {
 
-    const form = new FormData(document.getElementById("checksform"));
+    const form = new FormData(document.getElementById("checksform")); //id of form in html
 
     const response = await fetch(API_URL, {
         method: "POST",
